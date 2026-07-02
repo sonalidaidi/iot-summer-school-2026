@@ -1,14 +1,24 @@
+int ledPin = 13;
+int potPin = A0;
+int potValue = 0;
+int blinkDelay = 500;
+int count = 0;
+
 void setup() {
-  pinMode(13, OUTPUT);
+  pinMode(ledPin, OUTPUT);
   Serial.begin(115200);
 }
 
 void loop() {
-  digitalWrite(13, HIGH);
-  delay(500);
-  digitalWrite(13, LOW);
-  delay(500);
-  count++,
-    serial.print("Blink count: ");
-  Serial.print(count);
+  potValue = analogRead(potPin);
+  blinkDelay = map(potValue, 0, 1023, 100, 1000);
+
+  digitalWrite(ledPin, HIGH);
+  delay(blinkDelay);
+  digitalWrite(ledPin, LOW);
+  delay(blinkDelay);
+
+  count++;
+  Serial.print("Blink count: ");
+  Serial.println(count);
 }
