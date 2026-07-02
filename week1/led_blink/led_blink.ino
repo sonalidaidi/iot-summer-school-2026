@@ -1,3 +1,8 @@
+/*
+Author: Sonali Daidi
+Date: 02-07-2026
+Description: LED Blink project with Serial Monitor and potentiometer-controlled blink speed.
+*/
 int ledPin = 13;
 int potPin = A0;
 int potValue = 0;
