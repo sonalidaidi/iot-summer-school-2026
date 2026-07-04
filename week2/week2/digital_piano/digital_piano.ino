@@ -5,25 +5,40 @@ const int buttonFa = 5;
 const int modeButton = 6;
 const int buzzer = 8;
 
+bool majorMode=true;
+bool lastModeState=HIGH;
+
 void setup()
 {
-  pinMode(buttonDo, INPUT_PULLUP);
-  pinMode(buttonRe, INPUT_PULLUP);
-  pinMode(buttonMi, INPUT_PULLUP);
-  pinMode(buttonFa, INPUT_PULLUP);
-  pinMode(modeButton, INPUT_PULLUP);
+  pinMode(buttonDo,INPUT_PULLUP);
+  pinMode(buttonRe,INPUT_PULLUP);
+  pinMode(buttonMi,INPUT_PULLUP);
+  pinMode(buttonFa,INPUT_PULLUP);
+  pinMode(modeButton,INPUT_PULLUP);
 
-  pinMode(buzzer, OUTPUT);
+  pinMode(buzzer,OUTPUT);
+
+  Serial.begin(9600);
 }
 
 void loop()
 {
-  bool doPressed = digitalRead(buttonDo)==LOW;
-  bool rePressed = digitalRead(buttonRe)==LOW;
-  bool miPressed = digitalRead(buttonMi)==LOW;
-  bool faPressed = digitalRead(buttonFa)==LOW;
+  bool modeState=digitalRead(modeButton);
 
-  int count = doPressed + rePressed + miPressed + faPressed;
+  if(lastModeState==HIGH && modeState==LOW)
+  {
+    majorMode=!majorMode;
+    delay(200);
+  }
+
+  lastModeState=modeState;
+
+  bool doPressed=digitalRead(buttonDo)==LOW;
+  bool rePressed=digitalRead(buttonRe)==LOW;
+  bool miPressed=digitalRead(buttonMi)==LOW;
+  bool faPressed=digitalRead(buttonFa)==LOW;
+
+  int count=doPressed+rePressed+miPressed+faPressed;
 
   if(count>=2)
   {
@@ -39,7 +54,10 @@ void loop()
   }
   else if(miPressed)
   {
-    tone(buzzer,330);
+    if(majorMode)
+      tone(buzzer,330);
+    else
+      tone(buzzer,311);
   }
   else if(faPressed)
   {
