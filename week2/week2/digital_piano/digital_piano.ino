@@ -18,19 +18,30 @@ void setup()
 
 void loop()
 {
-  if (digitalRead(buttonDo) == LOW)
+  bool doPressed = digitalRead(buttonDo)==LOW;
+  bool rePressed = digitalRead(buttonRe)==LOW;
+  bool miPressed = digitalRead(buttonMi)==LOW;
+  bool faPressed = digitalRead(buttonFa)==LOW;
+
+  int count = doPressed + rePressed + miPressed + faPressed;
+
+  if(count>=2)
+  {
+    tone(buzzer,392);
+  }
+  else if(doPressed)
   {
     tone(buzzer,262);
   }
-  else if (digitalRead(buttonRe) == LOW)
+  else if(rePressed)
   {
     tone(buzzer,294);
   }
-  else if (digitalRead(buttonMi) == LOW)
+  else if(miPressed)
   {
     tone(buzzer,330);
   }
-  else if (digitalRead(buttonFa) == LOW)
+  else if(faPressed)
   {
     tone(buzzer,349);
   }
