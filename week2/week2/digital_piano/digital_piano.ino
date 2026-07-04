@@ -5,7 +5,8 @@ const int buttonFa = 5;
 const int modeButton = 6;
 const int buzzer = 8;
 
-void setup() {
+void setup()
+{
   pinMode(buttonDo, INPUT_PULLUP);
   pinMode(buttonRe, INPUT_PULLUP);
   pinMode(buttonMi, INPUT_PULLUP);
@@ -15,5 +16,26 @@ void setup() {
   pinMode(buzzer, OUTPUT);
 }
 
-void loop() {
+void loop()
+{
+  if (digitalRead(buttonDo) == LOW)
+  {
+    tone(buzzer,262);
+  }
+  else if (digitalRead(buttonRe) == LOW)
+  {
+    tone(buzzer,294);
+  }
+  else if (digitalRead(buttonMi) == LOW)
+  {
+    tone(buzzer,330);
+  }
+  else if (digitalRead(buttonFa) == LOW)
+  {
+    tone(buzzer,349);
+  }
+  else
+  {
+    noTone(buzzer);
+  }
 }
