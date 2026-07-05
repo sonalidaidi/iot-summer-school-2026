@@ -1,0 +1,35 @@
+
+==== SENSOR LOG ====
+Time      : 5186 ms
+Temp      : -1.00 C | Humidity: 15.40%
+Light     : 75% (Bright)
+Distance  : 397.65 cm
+====================
+
+==== SENSOR LOG ====
+Time      : 10329 ms
+Temp      : -1.00 C | Humidity: 15.40%
+Light     : 73% (Bright)
+Distance  : 397.63 cm
+====================
+
+==== SENSOR LOG ====
+Time      : 15472 ms
+Temp      : -1.00 C | Humidity: 15.40%
+Light     : 69% (Normal)
+Distance  : 397.65 cm
+====================
+
+==== SENSOR LOG ====
+Time      : 20616 ms
+Temp      : -1.00 C | Humidity: 15.40%
+Light     : 63% (Normal)
+Distance  : 397.63 cm
+====================
+
+==== SENSOR LOG ====
+Time      : 25759 ms
+Temp      : -1.00 C | Humidity: 15.40%
+Light     : 60% (Normal)
+Distance  : 397.65 cm
+====================
